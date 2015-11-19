@@ -1,7 +1,8 @@
+<%= link_to "New Photo", new_photo_path %>
+
 <table>
     <thead>
         <tr>
-            <th>Original</th>
             <th>Thumb</th>
             <th>Pixel</th>
         </tr>
@@ -9,10 +10,12 @@
     <tbody>
         <% @photos.each do |p| %>
             <tr>
-                <td><img src="<%= p.image.url %>"></td>
                 <td><img src="<%= p.image.versions[:thumb].url %>"></td>
                 <td><img src="<%= p.image.versions[:pixels].url %>"></td>
+                <td><%= button_to "Draw", draw_photo_path(p), remote: true %></td>
             </tr>
         <% end %>
     </tbody>
 </table>
+
+<%= button_to "Reset", reset_photos_path, remote: true %>
