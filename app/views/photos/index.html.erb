@@ -1,0 +1,18 @@
+<table>
+    <thead>
+        <tr>
+            <th>Original</th>
+            <th>Thumb</th>
+            <th>Pixel</th>
+        </tr>
+    </thead>
+    <tbody>
+        <% @photos.each do |p| %>
+            <tr>
+                <td><img src="<%= p.image.url %>"></td>
+                <td><img src="<%= p.image.versions[:thumb].url %>"></td>
+                <td><img src="<%= p.image.versions[:pixels].url %>"></td>
+            </tr>
+        <% end %>
+    </tbody>
+</table>
